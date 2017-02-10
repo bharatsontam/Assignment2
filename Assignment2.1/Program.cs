@@ -13,6 +13,7 @@ namespace Assignment2._1
         {
             Console.WriteLine("Please enter number of students you want to create:");
             int numberOfStudents = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Using Arrays creating students array");
             Student[] studentArray = Student.GetStudentArray(numberOfStudents);
             for (short i = 0; i < numberOfStudents; i++)
             {
@@ -25,7 +26,7 @@ namespace Assignment2._1
                 Console.WriteLine("Enter Student DOB for student {0}:(yyyy/mm/dd)", i + 1);
                 studentArray[i].DOB = Convert.ToDateTime(Console.ReadLine());
             }
-
+            Console.WriteLine("Using ArrayList creating even age student list and odd age student list");
             ArrayList oddStudentArrayList = new ArrayList();
             ArrayList eventStudentArrayList = new ArrayList();
             foreach (var student in studentArray)
@@ -40,10 +41,11 @@ namespace Assignment2._1
                     oddStudentArrayList.Add(student);
                 }
             }
-
+            Console.WriteLine("Adding both EvenAgeStudentArrayList and OddAgeStudentArrayList into Hastable under EvenAgeStudents and OddAgeStudents keys");
             Hashtable studentHasTable = new Hashtable();
             studentHasTable.Add("EvenAgeStudents", eventStudentArrayList);
             studentHasTable.Add("OddAgeStudents", oddStudentArrayList);
+            Console.WriteLine("Reading HashTable");
             Console.WriteLine("-----------------------------------------------------");
             foreach (DictionaryEntry entry in studentHasTable)
             {
@@ -57,7 +59,7 @@ namespace Assignment2._1
                 }
                 Console.WriteLine("-----------------------------------------------------");
             }
-
+            Console.WriteLine("Finished reading hashtable");
             Console.ReadKey();
         }
     }
